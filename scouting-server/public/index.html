@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td { 
+            padding: 15px;
+        }
+        
+    </style>
+
+    <script src="/qrcode/build/qrcode.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+
+</head>
+
+<body>
+    <h3>Scouting App Prototype</h3>
+    <input placeholder="Team Number" type="text" id="userInput"></input> <br>
+
+    <hr>
+
+    <p>Reached opponent's outer works?</p>
+    <input id="outerWorksYes" type="radio" name="outerWorks" value="yes"> Yes<br>
+    <div style="padding-bottom: 15px"><input id ="outerWorksNo" type="radio" name="outerWorks" value="no"> No <br></div>
+
+    <hr>
+
+    <table style="width:100%">
+            <tr>
+                <th></th>
+                <th>Auto</th> 
+                <th>Teleop</th>
+            </tr>
+            <tr>
+                <td>Low Goal</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="boulderLowAutoSuccessCountFun()" /><input type="button" id="btnClick" value="Fail" onclick="boulderLowAutoFailCountFun()" /><br><text>Successes:</text><text id="boulderLowAutoSuccessCount"></text><text>   Fails:</text><text id="boulderLowAutoFailCount"></text> </div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="boulderLowTeleopSuccessCountFun()"/><input type="button" id="btnClick" value="Fail" onclick="boulderLowTeleopFailCountFun()" /><br><text>Successes:</text><text id="boulderLowTeleopSuccessCount"></text><text>   Fails:</text><text id="boulderLowTeleopFailCount"></text></div></td>
+            </tr>
+            <tr>
+                <td>High Goal</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="boulderHighAutoSuccessCountFun()" /><input type="button" id="btnClick" value="Fail" onclick="boulderHighAutoFailCountFun()" /><br><text>Successes:</text><text id="boulderHighAutoSuccessCount"></text><text>   Fails:</text><text id="boulderHighAutoFailCount"></text> </div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="boulderHighTeleopSuccessCountFun()"/><input type="button" id="btnClick" value="Fail" onclick="boulderHighTeleopFailCountFun()" /><br><text>Successes:</text><text id="boulderHighTeleopSuccessCount"></text><text>   Fails:</text><text id="boulderHighTeleopFailCount"></text></div></td>
+            </tr>
+            <tr>
+                <td>Portcullis</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Cheval de Frise</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Moat</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Ramparts</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Drawbridge</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Sally Port</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Rock Wall</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Rough Terrain</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+            <tr>
+                <td>Low Bar</td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+                <td><div style="text-align: center"><input type="button" id="btnClick" value="Success" onclick="CountFun()" /><input type="button" id="btnClick" value="Fail" onclick="CountFun()" /></div></td>
+            </tr>
+    </table>
+
+    <hr>
+
+    <p>Challenged Tower?</p>
+
+    <input id="towerYes" type="radio" name="challenge" value="yes"> Yes<br>
+    <div style="padding-bottom: 15px"><input id ="towerNo" type="radio" name="challenge" value="no"> No <br></div>
+
+    <hr>
+
+    <p>Climb?</p>
+    <input id="climbYes" type="radio" name="climb" value="yes"> Yes<br>
+    <div style="padding-bottom: 15px"><input id ="climbNo" type="radio" name="climb" value="no"> No <br></div>
+
+    <hr>
+
+    <div style = "padding-top: 15px"><input style = "padding-bottom: 15px" placeholder="Defensive Capability" type="text" id="defense"></input></div> <br>
+    <div style = "padding-bottom: 15px"><input style = "padding-bottom: 15px" placeholder="Notes" type="text" id="notes"></input></div> <br>
+
+    <hr>
+
+    <button onclick="renderQRCode()">Submit</button> <br>
+    <canvas id="canvas"></canvas>
+
+
+</body>
+
+</html>
